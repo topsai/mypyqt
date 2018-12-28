@@ -9,8 +9,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QCoreApplication
 import serial
-
 import serial.tools.list_ports
+
+# with serial.Serial() as ser:
+#     ser.baudrate = 19200
+#     ser.port = 'COM1'
+#     ser.open()
+#     ser.write(b'hello')
 
 
 class Ui_MainWindow(object):
@@ -50,7 +55,6 @@ class Ui_MainWindow(object):
             self.label.setText("未连接")
             self.pushButton.setStyleSheet("background: rgb(255,255,255)")
 
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -81,4 +85,3 @@ class Ui_MainWindow(object):
         MainWindow.setToolTip(_translate("MainWindow", "<html><head/><body><p>啊</p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "未连接"))
         self.label.setText(_translate("MainWindow", "no connect"))
-

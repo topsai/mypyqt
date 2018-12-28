@@ -5,15 +5,17 @@
 # Date: 2018/12/28
 
 import sys
+import threading
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from main import *
+from main1 import *
 
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.setupUi(self)
+
 
 
 if __name__ == '__main__':
