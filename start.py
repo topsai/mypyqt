@@ -8,7 +8,7 @@ import sys
 import threading
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from main1 import *
+from main import *
 
 
 class MyWindow(QMainWindow, Ui_MainWindow):
