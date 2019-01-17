@@ -6,9 +6,6 @@
 import serial.tools.list_ports
 
 
-class MySerial:
-    pass
-
 
 def search1():
     port_list = list(serial.tools.list_ports.comports())
@@ -51,3 +48,34 @@ class Ui_MainWindow(object):
             self.pushButton.setStyleSheet("background: rgb(255,255,255)")
 
 
+def fix_ui(func):
+    def deco(*args, **kwargs):
+        res = func(*args, **kwargs)
+        func.pushButton_2.clicked.connect(func.refresh)
+        func.comboBox.addItems(func.com_list)
+        func.pushButton.clicked.connect(func.conn)
+        return res
+
+    return deco
+
+
+def my_log(func):
+    def deco(*args, **kwargs):
+        res = func(*args, **kwargs)
+        print(res.message)
+    return deco
+
+
+def conn_com(com):
+    try:
+        ser = serial.Serial(com, 9600, timeout=60)
+        print("连接成功")
+        print(ser.name)
+        return ser
+    except:
+        return 0
+
+
+def flash(cpu_model, com):
+    print(cpu_model, com, "flash ing ")
+    return 1
